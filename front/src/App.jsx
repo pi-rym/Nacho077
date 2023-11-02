@@ -1,22 +1,34 @@
-import data, { Rick } from './data.js'
-import Card from './Card.jsx'
+import Nav from './components/Nav.jsx'
+import Cards from './components/Cards.jsx'
+import { useState } from 'react'
+import axios from 'axios'
 import './App.css'
 
 function App() {
-  const closeFunction = () => {
-    alert("Cerrando card...")
+  const [characters, setCharacters] = useState([])
+  const APIKEY = 'pi-hx-aquintero'
+
+  const onSearch = (id) => {
+    axios.get('https://rym2.up.railway.app/api/character/' + id + '?key=' + APIKEY)
+    .then(({data}) => {
+        if(data) {
+          setCharacters([...characters, data])
+        } else {
+          alert('Algo salio mal')
+        }
+      })
+      .catch(err => alert(err))
+  }
+
+  const onCloseCharacter = (id) => {
+    const characterFilters = characters.filter(character => character.id != id)
+    setCharacters(characterFilters)
   }
 
   return (
     <>
-      <Card character={Rick} closeFunction={closeFunction} />
-      {data.map((character, i) => (
-        <Card
-        character={character}
-        closeFunction={closeFunction}
-        key={i}
-        />
-      ))}
+      <Nav onSearch={onSearch} />
+      <Cards characters={characters} onClose={onCloseCharacter} />
     </>
   )
 }
