@@ -40,3 +40,12 @@
 .read-the-docs {
   color: #888;
 }
+
+img {
+  transition-property: all;
+  transition-duration: 2s;
+}
+
+.rotateImage {
+  transform: rotateY(180deg);
+}
