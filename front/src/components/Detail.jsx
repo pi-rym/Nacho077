@@ -1,6 +1,7 @@
 import { useParams } from "react-router-dom"
 import { useEffect, useState } from 'react'
 import axios from 'axios'
+import { APIKEY } from "../utils/constants"
 
 const Detail = () => {
     const {id} = useParams()
@@ -9,7 +10,6 @@ const Detail = () => {
     const handleRotate = () => {
         setRotate(!isRotate)
     }
-    const APIKEY = 'henrystaff'
 
     useEffect(() => {
         setTimeout(() => {
@@ -25,7 +25,7 @@ const Detail = () => {
             );
             
             setCharacter({});
-            }, 5000)
+            }, 2000)
      }, [id]);
 
     return character.name ? (
