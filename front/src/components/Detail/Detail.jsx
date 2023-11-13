@@ -1,7 +1,8 @@
 import { useParams } from "react-router-dom"
 import { useEffect, useState } from 'react'
 import axios from 'axios'
-import { APIKEY } from "../utils/constants"
+import { APIKEY } from "../../utils/constants"
+import style from './Detail.module.scss'
 
 const Detail = () => {
     const {id} = useParams()
@@ -29,12 +30,16 @@ const Detail = () => {
      }, [id]);
 
     return character.name ? (
-        <div>
-            <h1>{character.name}</h1>
-            <h2>{character.species}</h2>
-            <p>{character.gender}</p>
-            <img src={character.image} className={isRotate ? 'rotateImage': null}/>
-            <button onClick={handleRotate}>Girar carta</button>
+        <div className={style.container}>
+            <div className={style.containerInfo}>
+                <h1>{character.name}</h1>
+                <h2>{character.species}</h2>
+                <p>{character.gender}</p>
+            </div>
+            <div className={style.containerImage}>
+                <img src={character.image} className={isRotate ? style.rotateImage: null}/>
+                <button onClick={handleRotate}>Girar carta</button>
+            </div>
         </div>
     ) : (
         <h1>Cargando su personaje...</h1>

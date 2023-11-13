@@ -1,0 +1,44 @@
+@mixin flex($justify, $align: center, $gap: 0px, $wrap: wrap) {
+    display: flex;
+    justify-content: $justify;
+    align-items: $align;
+    flex-wrap: $wrap;
+    gap: $gap;
+}
+
+@mixin button() {
+    border-radius: 8px;
+    border: 1px solid transparent;
+    padding: 0.6em 1.2em;
+    font-size: 1em;
+    font-weight: 500;
+    font-family: inherit;
+    background-color: #1a1a1a;
+    cursor: pointer;
+    transition: border-color 0.25s;
+
+    &hover {
+        border-color: #646cff;
+    }
+    &focus,
+    &focus-visible {
+        outline: 4px auto -webkit-focus-ring-color;
+    }
+}
+
+@mixin link() {
+    font-weight: 1100;
+    font-size: 30px;
+    color: #646cff;
+    text-decoration: inherit;
+
+    &hover{
+        color: #535bf2;
+    }
+}
+
+@mixin screen-small {
+    @media only screen and (max-width: $small-screen) {
+        @content
+    }
+}

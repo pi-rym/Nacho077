@@ -1,0 +1,30 @@
+.container{
+    width: 80vw;
+    @include flex(space-around);
+    flex-direction: row-reverse;
+
+    .containerInfo {
+        @include flex(center);
+        flex-direction: column;
+    }
+
+    .containerImage{
+        @include flex(center);
+        flex-direction: column;
+
+        img {
+            transition-property: all;
+            transition-duration: 2s;
+            border-radius: 50%;
+        }
+
+        button {
+            margin-top: 20px;
+            @include button();
+        }
+    }
+}
+
+.rotateImage {
+    transform: rotateY(180deg);
+}

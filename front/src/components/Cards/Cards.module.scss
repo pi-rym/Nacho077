@@ -1,0 +1,4 @@
+.cards_container {
+    width: 100%;
+    @include flex(center, center, 40px);
+}

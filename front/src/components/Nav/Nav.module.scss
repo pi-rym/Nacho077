@@ -1,0 +1,29 @@
+.navContainer {
+    position: fixed;
+    top: 0px;
+    left: 0px;
+    background-color: $primary-color;
+    width: 100vw;
+    @include flex(flex-end);
+
+    @include screen-small {
+        background: red;
+    }
+
+    .containerAll {
+        width: 35%;
+        margin-right: 50px;
+        @include flex(space-between);
+    }
+
+    .containerButtons {
+        width: 200px;
+        @include flex(space-between);
+        margin: 20px;
+        margin-left: 30px;
+
+        .button {
+            @include button();
+        }
+    }
+};
