@@ -14,6 +14,7 @@ const Nav = ({onSearch}) => {
                 <div className={style.containerButtons}>
                     <button className={style.button} onClick={() => navigate('/home')}>HOME</button>
                     <button className={style.button} onClick={() => navigate('/about')}>ABOUT</button>
+                    <button className={style.button} onClick={() => navigate('/favorites')}>FAVORITES</button>
                 </div>
                 <div>
                     <SearchBar onSearch={onSearch} />

@@ -8,6 +8,7 @@ import About from './components/About/About.jsx'
 import Detail from './components/Detail/Detail.jsx'
 import Form from './components/Form/Form.jsx'
 import { APIKEY, USERNAME, PASS } from './utils/constants.js'
+import Favorites from './components/Favorites/Favorites.jsx'
 
 function App() {
   const [characters, setCharacters] = useState([])
@@ -52,6 +53,7 @@ function App() {
           <Route path="/home" element={<Cards characters={characters} onClose={onCloseCharacter} />} />
           <Route path="/about" element={<About />} />
           <Route path="/detail/:id" element={<Detail />} />
+          <Route path="/favorites" element={<Favorites onClose={onCloseCharacter} />} />
           {/* <Route path="/detail/:id/:name" element={<Detail />} /> */}
         </Routes>
       </div>
