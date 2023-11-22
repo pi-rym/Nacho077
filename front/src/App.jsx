@@ -1,4 +1,5 @@
 import { useState, useEffect } from 'react'
+import React from 'react'
 import axios from 'axios'
 import { Routes, Route, useLocation, useNavigate } from 'react-router-dom'
 import style from './App.module.scss'
@@ -23,13 +24,13 @@ function App() {
   const onSearch = (id) => {
     axios.get('https://rym2.up.railway.app/api/character/' + id + '?key=' + APIKEY)
     .then(({data}) => {
-        if(data) {
-          setCharacters([...characters, data])
-        } else {
-          alert('Algo salio mal')
-        }
-      })
-      .catch(err => alert(err))
+      if(data) {
+        setCharacters([...characters, data])
+      } else {
+        alert('Algo salio mal')
+      }
+    })
+    .catch(err => alert(err))
   }
 
   const onCloseCharacter = (id) => {
